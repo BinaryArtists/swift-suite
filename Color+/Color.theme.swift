@@ -39,3 +39,8 @@ extension UIColor {
         return UIColor.init(red: (204.0/255), green: (204.0/255), blue: (204.0/255), alpha: 1.0)
     }
 }
+
+let themeColor   = UIColor(red: 255.0/255, green: 125.0/255, blue: 140.0/255, alpha: 1.0)
+
+let gray001Color = UIColor(red: (51.0/255), green: (51.0/255), blue: (51.0/255), alpha: 1.0)
+
