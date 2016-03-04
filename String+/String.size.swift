@@ -14,7 +14,7 @@ extension String {
      *
      */
     public func textSizeWith(fontSize:CGFloat,width:CGFloat)->CGSize{
-        let font = UIFont.systemFontOfSize(fontSize)
+        let font = UIFont.systemScaleFontSize(fontSize)
         let size = CGSizeMake(width, CGFloat.max)
         let text = self as NSString
         let paragraphStyle = NSMutableParagraphStyle()

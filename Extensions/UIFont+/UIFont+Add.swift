@@ -9,15 +9,29 @@
 import Foundation
 
 extension UIFont{
-
+    static var scale:CGFloat{
+        get {
+            return 1.2
+        }
+    }
+    
     /**
-     判断设备输入不同的比例
+     判断设备字体进行放缩
     
      - parameter fontSize:
      */
     class func systemScaleFontSize(fontSize:CGFloat) ->UIFont{
-        return  UIFont.systemFontOfSize(fontSize)
+        switch UIDevice.deviceType{
+            case .DT_iPhone6_Plus:
+                return UIFont.systemFontOfSize(fontSize * CGFloat(scale))
+            default:
+                return UIFont.systemFontOfSize(fontSize)
+        }
     }
-    
-    
 }
+
+
+let level001Font = UIFont.systemScaleFontSize(16)
+let leve1002Font = UIFont.systemScaleFontSize(15)
+let leve1003Font = UIFont.systemScaleFontSize(14)
+let leve1004Font = UIFont.systemScaleFontSize(12)

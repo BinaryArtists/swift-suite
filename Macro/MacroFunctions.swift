@@ -28,14 +28,15 @@ func DBNib(nibName:String) ->UINib{
     return UINib(nibName:nibName, bundle: NSBundle.mainBundle())
 }
 
-let DBWidth = UIScreen.mainScreen().bounds.size.width
-let DBHeight = UIScreen.mainScreen().bounds.size.height
+let DBWidth:CGFloat = UIScreen.mainScreen().bounds.size.width
+let DBHeight:CGFloat = UIScreen.mainScreen().bounds.size.height
 
 /**
 *  简写的实例化
 */
 let DBDefault = NSUserDefaults.standardUserDefaults()
 let DBNotificationCenter = NSNotificationCenter.defaultCenter()
+let DBAppDelegate  = UIApplication.sharedApplication().delegate as! AppDelegate
 
 let DBTrue = true
 let DBFalse = false
