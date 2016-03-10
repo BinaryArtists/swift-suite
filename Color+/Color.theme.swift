@@ -45,3 +45,7 @@ let themeColor   = UIColor(red: 255.0/255, green: 125.0/255, blue: 140.0/255, al
 let gray001Color = UIColor(red: (51.0/255), green: (51.0/255), blue: (51.0/255), alpha: 1.0)
 
 let gray002Color = UIColor(red: (102.0/255), green: (102.0/255), blue: (102.0/255), alpha: 1.0)
+
+let gray003Color = UIColor(red: (153.0/255), green: (153.0/255), blue: (153.0/255), alpha: 1.0)
+
+let gray004Color = UIColor(red: (204.0/255), green: (204.0/255), blue: (204.0/255), alpha: 1.0)

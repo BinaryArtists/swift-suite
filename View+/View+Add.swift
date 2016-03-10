@@ -28,6 +28,5 @@ extension UIView{
         }else{
             
         }
-        debugPrint("action打印")
     }
 }
