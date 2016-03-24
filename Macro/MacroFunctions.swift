@@ -10,7 +10,7 @@ import Foundation
 
 /// Debug Log
 let debug = true
-func DLog (value: Any , fileName : String = __FILE__, line : Int32 = __LINE__ ){
+func DLog (value: Any , fileName : String = #file, line : Int32 = #line ){
     if debug {
         print("文件：\(NSURL(string: fileName)!.lastPathComponent!)  行：\(line) 内容:\(value)\n")
     }
