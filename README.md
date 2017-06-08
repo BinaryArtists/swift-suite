@@ -24,6 +24,8 @@ Data driven!
 
 ## manual
 
+0. [vsouza/awesome-ios](https://github.com/vsouza/awesome-ios)
+
 1. Magic '_': 
     - [Swift——(三)Swift神奇的下划线](http://www.cnblogs.com/bhlsheji/p/4746072.html)
 
@@ -31,6 +33,15 @@ Data driven!
 
 1. [JohnSundell/SwiftPlate](https://github.com/JohnSundell/SwiftPlate)
 2. [yonaskolb/SwagGen](https://github.com/yonaskolb/SwagGen), Swagger/OpenAPISpec code generator written in Swift
+3. 
+
+## vendor
+
+1. [mac-cain13/R.swift](https://github.com/mac-cain13/R.swift), resource
+2. [typelift/Swiftx](https://github.com/typelift/Swiftx), Functional data types and functions
+3. [skyfe79/SwiftImageProcessing](https://github.com/skyfe79/SwiftImageProcessing)
+4. [jeantimex/ios-swift-collapsible-table-section](https://github.com/jeantimex/ios-swift-collapsible-table-section)
+5. [keitaoouchi/IoniconsKit](https://github.com/keitaoouchi/IoniconsKit), Use ionicons as UIImage / UIFont
 
 ## projects
 
@@ -38,6 +49,7 @@ Data driven!
 2. [thinkloki/swift-open-project](https://github.com/thinkloki/swift-open-project), Swift 开源项目分类汇总
 3. [twostraws/HackingWithSwift](https://github.com/twostraws/HackingWithSwift)
 4. [allenwong/30DaysofSwift](https://github.com/allenwong/30DaysofSwift)
+5. [larrynatalicio/15DaysofAnimationsinSwift](https://github.com/larrynatalicio/15DaysofAnimationsinSwift)
 
 ## reference
 
