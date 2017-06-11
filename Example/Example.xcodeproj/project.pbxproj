@@ -20,7 +20,6 @@
 		5DB2FB171E950D6F00B0A5CB /* Name+Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB2FB161E950D6F00B0A5CB /* Name+Network.swift */; };
 		5DB2FB191E950DCF00B0A5CB /* UserNetworkStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB2FB181E950DCF00B0A5CB /* UserNetworkStore.swift */; };
 		5DB2FB1B1E950DEA00B0A5CB /* UserNetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB2FB1A1E950DEA00B0A5CB /* UserNetworkRouter.swift */; };
-		5DB2FB1E1E950E5900B0A5CB /* SerializableUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB2FB1D1E950E5900B0A5CB /* SerializableUtils.swift */; };
 		6A234B921EECDB2D00CE057C /* IBInspecView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A234B761EECDB2D00CE057C /* IBInspecView.swift */; };
 		6A234B931EECDB2D00CE057C /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A234B771EECDB2D00CE057C /* RoundImageView.swift */; };
 		6A234B941EECDB2D00CE057C /* Color.theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A234B7D1EECDB2D00CE057C /* Color.theme.swift */; };
@@ -50,6 +49,7 @@
 		6A234BC91EECFF8100CE057C /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A234BC71EECFF8100CE057C /* UserTableViewCell.swift */; };
 		6A234BCA1EECFF8100CE057C /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6A234BC81EECFF8100CE057C /* UserTableViewCell.xib */; };
 		6A234BCC1EECFF9200CE057C /* UserListViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A234BCB1EECFF9200CE057C /* UserListViewController+TableView.swift */; };
+		6A234BCF1EED0CD800CE057C /* SerializableUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A234BCE1EED0CD800CE057C /* SerializableUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,7 +68,6 @@
 		5DB2FB161E950D6F00B0A5CB /* Name+Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Name+Network.swift"; sourceTree = "<group>"; };
 		5DB2FB181E950DCF00B0A5CB /* UserNetworkStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNetworkStore.swift; sourceTree = "<group>"; };
 		5DB2FB1A1E950DEA00B0A5CB /* UserNetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNetworkRouter.swift; sourceTree = "<group>"; };
-		5DB2FB1D1E950E5900B0A5CB /* SerializableUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializableUtils.swift; sourceTree = "<group>"; };
 		6A234B761EECDB2D00CE057C /* IBInspecView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IBInspecView.swift; sourceTree = "<group>"; };
 		6A234B771EECDB2D00CE057C /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		6A234B7D1EECDB2D00CE057C /* Color.theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.theme.swift; sourceTree = "<group>"; };
@@ -98,6 +97,7 @@
 		6A234BC71EECFF8100CE057C /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		6A234BC81EECFF8100CE057C /* UserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		6A234BCB1EECFF9200CE057C /* UserListViewController+TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserListViewController+TableView.swift"; sourceTree = "<group>"; };
+		6A234BCE1EED0CD800CE057C /* SerializableUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerializableUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +142,6 @@
 			children = (
 				6A234B9E1EECE9B800CE057C /* Scenes */,
 				6A234B9F1EECE9B800CE057C /* SceneTemplate */,
-				5DB2FB1C1E950E4D00B0A5CB /* Common */,
 				5DB2FB071E950C1700B0A5CB /* Services */,
 				5DB2FB0E1E950CC200B0A5CB /* Models */,
 				5DB2FAC71E94FBE200B0A5CB /* AppDelegate.swift */,
@@ -221,14 +220,6 @@
 				5DB2FB161E950D6F00B0A5CB /* Name+Network.swift */,
 			);
 			path = Mappers;
-			sourceTree = "<group>";
-		};
-		5DB2FB1C1E950E4D00B0A5CB /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				5DB2FB1D1E950E5900B0A5CB /* SerializableUtils.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		6A234B731EECDB2D00CE057C /* _Building */ = {
@@ -360,6 +351,7 @@
 		6A234B8D1EECDB2D00CE057C /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				6A234BCD1EED0CD800CE057C /* Serilization */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -456,6 +448,14 @@
 				6A234BC81EECFF8100CE057C /* UserTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6A234BCD1EED0CD800CE057C /* Serilization */ = {
+			isa = PBXGroup;
+			children = (
+				6A234BCE1EED0CD800CE057C /* SerializableUtils.swift */,
+			);
+			path = Serilization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -567,11 +567,11 @@
 				6A234B961EECDB2D00CE057C /* String.size.swift in Sources */,
 				6A234B991EECDB2D00CE057C /* Button.Label.swift in Sources */,
 				6A234BB71EECE9B800CE057C /* UserDetailPresenter.swift in Sources */,
-				5DB2FB1E1E950E5900B0A5CB /* SerializableUtils.swift in Sources */,
 				6A234BBF1EECE9B800CE057C /* UserListModels.swift in Sources */,
 				6A234B981EECDB2D00CE057C /* UIFont+Add.swift in Sources */,
 				6A234BBA1EECE9B800CE057C /* UserDetailViewController.swift in Sources */,
 				6A234BC11EECE9B800CE057C /* UserListRouter.swift in Sources */,
+				6A234BCF1EED0CD800CE057C /* SerializableUtils.swift in Sources */,
 				6A234B951EECDB2D00CE057C /* NotificationCenter+Add.swift in Sources */,
 				6A234B931EECDB2D00CE057C /* RoundImageView.swift in Sources */,
 				5DB2FB121E950CEE00B0A5CB /* Name.swift in Sources */,
