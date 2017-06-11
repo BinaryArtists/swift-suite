@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum DeviceType: Int
 {
@@ -25,16 +26,16 @@ enum DeviceType: Int
 extension UIDevice{
     static var deviceType:DeviceType{
         get {
-            if let size = UIScreen.mainScreen().currentMode?.size{
+            if let size = UIScreen.main.currentMode?.size{
                 switch size{
-                case CGSizeMake(640 , 960 ) : return .DT_iPhone4S
-                case CGSizeMake(640 , 1136) : return .DT_iPhone5
-                case CGSizeMake(750 , 1334) : return .DT_iPhone6
-                case CGSizeMake(1242, 2208) : return .DT_iPhone6_Plus
-                case CGSizeMake(1024, 768 ) : return .DT_iPad
-                case CGSizeMake(768 , 1024) : return .DT_iPad_Mini
-                case CGSizeMake(2048, 1536) : return .DT_iPad_Retina
-                case CGSizeMake(1536, 2048) : return .DT_iPad_Mini_Retina
+                case CGSize(width: 640, height: 960) : return .DT_iPhone4S
+                case CGSize(width: 640 , height: 1136) : return .DT_iPhone5
+                case CGSize(width: 750 , height: 1334) : return .DT_iPhone6
+                case CGSize(width: 1242, height: 2208) : return .DT_iPhone6_Plus
+                case CGSize(width: 1024, height: 768 ) : return .DT_iPad
+                case CGSize(width: 768 , height: 1024) : return .DT_iPad_Mini
+                case CGSize(width: 2048, height: 1536) : return .DT_iPad_Retina
+                case CGSize(width: 1536, height: 2048) : return .DT_iPad_Mini_Retina
                 default : return .DT_UNKNOWN
                 }
             }
@@ -47,14 +48,14 @@ extension UIDevice{
      判断当前设备是不是iPhone设备
      */
     class func isPhone() -> Bool {
-        return UIDevice.currentDevice().userInterfaceIdiom == .Phone
+        return UIDevice.current.userInterfaceIdiom == .phone
     }
     
     /**
      判断当前设备是不是iPad设备
      */
     class func isPad() -> Bool {
-        return UIDevice.currentDevice().userInterfaceIdiom == .Pad
+        return UIDevice.current.userInterfaceIdiom == .pad
     }
     
     /**
@@ -85,12 +86,12 @@ extension UIDevice{
     /**
      判断当前设备的系统版本是否大于或者等于#version
      */
-    func isGE(version version: String) -> Bool {
-        return compare(version: version) != .OrderedAscending
+    func isGE(version: String) -> Bool {
+        return compare(version: version) != .orderedAscending
     }
     
-    private func compare(version version: String) -> NSComparisonResult {
-        return UIDevice.currentDevice().systemVersion.compare(version, options: NSStringCompareOptions.NumericSearch)
+    private func compare(version: String) -> ComparisonResult {
+        return UIDevice.current.systemVersion.compare(version, options: NSString.CompareOptions.numeric)
     }
 
     

@@ -42,14 +42,14 @@ extension UIView {
      *  bottom, right, width, height
      */
     var bottom:CGFloat {
-        return CGRectGetMaxY(self.frame)
+        return self.frame.maxY
     }
     var right:CGFloat {
-        return CGRectGetMaxX(self.frame)
+        return self.frame.maxX
     }
     var width:CGFloat {
         get {
-            return CGRectGetWidth(self.frame)
+            return self.frame.width
         }
         
         set {
@@ -60,7 +60,7 @@ extension UIView {
     }
     var height:CGFloat {
         get {
-            return CGRectGetHeight(self.frame)
+            return self.frame.height
         }
         
         set {

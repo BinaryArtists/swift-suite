@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension UIFont{
     static var scale:CGFloat{
@@ -23,15 +24,15 @@ extension UIFont{
     class func systemScaleFontSize(fontSize:CGFloat) ->UIFont{
         switch UIDevice.deviceType{
             case .DT_iPhone6_Plus:
-                return UIFont.systemFontOfSize(fontSize * CGFloat(scale))
+                return UIFont.systemFont(ofSize: fontSize * CGFloat(scale))
             default:
-                return UIFont.systemFontOfSize(fontSize)
+                return UIFont.systemFont(ofSize: fontSize)
         }
     }
 }
 
 
-let level001Font = UIFont.systemScaleFontSize(16)
-let leve1002Font = UIFont.systemScaleFontSize(15)
-let leve1003Font = UIFont.systemScaleFontSize(14)
-let leve1004Font = UIFont.systemScaleFontSize(12)
+let font_l = UIFont.systemScaleFontSize(fontSize: 16)
+let font_m = UIFont.systemScaleFontSize(fontSize: 15)
+let font_s = UIFont.systemScaleFontSize(fontSize: 14)
+let font_ss = UIFont.systemScaleFontSize(fontSize: 12)

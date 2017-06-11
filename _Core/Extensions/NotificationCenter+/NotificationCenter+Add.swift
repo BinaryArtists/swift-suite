@@ -8,20 +8,20 @@
 
 import Foundation
 
-extension NSNotificationCenter{
+extension NotificationCenter{
     func postNotificationOnMainThread(notification:NSNotification){
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            NSNotificationCenter.defaultCenter().postNotification(notification)
+        DispatchQueue.main.async() { () -> Void in
+            NotificationCenter.default.post(notification as Notification)
         }
     }
     
     func postNotificationNameOnMainThread(aName:String,object:AnyObject?){
-        let not = NSNotification(name: aName, object: object)
-        postNotificationOnMainThread(not)
+        let not = Notification(name: Notification.Name(rawValue: aName), object: object)
+        postNotificationOnMainThread(notification: not as NSNotification)
     }
     
     func postNotificationNameOnMainThread(aName:String,object:AnyObject?,userInfo:[NSObject:AnyObject]?){
-        let not = NSNotification(name: aName, object: object, userInfo: userInfo)
-        postNotificationOnMainThread(not)
+        let not = NSNotification(name: NSNotification.Name(rawValue: aName), object: object, userInfo: userInfo)
+        postNotificationOnMainThread(notification: not)
     }
 }

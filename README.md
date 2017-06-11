@@ -11,7 +11,18 @@ Data driven!
 2. ViewController
 3. Between ViewController and Interactor
 3. Interactor
-4. 
+
+1. Scene / per view
+    - Configurator (singleton)
+    - ViewController <PresenterOutput>
+    - ViewController.output -> Interactor (输出Action)
+    - ViewController.router -> Router
+    - Router
+    - Router -> ViewController, dataSource:Interactor, dataDestination:Interactor
+    - Interactor <ViewControllerOutput, RouterDataSource, RouterDataDestination>
+    - Interactor.output -> Presenter (输出？？)
+    - Presenter <tInteractorOutput>
+    - Presenter.outpu -> ViewController (输出数据)
 
 ## script
 

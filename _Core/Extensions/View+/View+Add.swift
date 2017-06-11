@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ActionManager:NSObject{
     var actionDict:Dictionary<NSValue,()->()> = Dictionary()
@@ -16,8 +17,8 @@ class ActionManager:NSObject{
 
 
 extension UIView{
-    func addAction(closure:()->()){
-        let tap = UITapGestureRecognizer(target: self, action: "tapClick:")
+    func addAction(closure:@escaping ()->()){
+        let tap = UITapGestureRecognizer(target: self, action: Selector(("tapClick:")))
         self.addGestureRecognizer(tap)
         ActionManager.sharedManager.actionDict[NSValue(nonretainedObject: self)] = closure
     }

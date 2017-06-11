@@ -21,7 +21,7 @@ class RoundImageView: UIImageView {
     }
     
     init (){
-        super.init(frame:CGRectZero)
+        super.init(frame:CGRect.zero)
         addCover()
     }
     
@@ -30,9 +30,9 @@ class RoundImageView: UIImageView {
         //FIXME:图片有点不合适咯
         imageView.image = UIImage(named: "roundCoverer")
         self.addSubview(imageView)
-        imageView.snp_makeConstraints { (make) -> Void in
-            make.edges.equalTo(self).inset(UIEdgeInsetsMake(0, 0, 0, 0))
-        }
+//        imageView.snp_makeConstraints { (make) -> Void in
+//            make.edges.equalTo(self).inset(UIEdgeInsetsMake(0, 0, 0, 0))
+//        }
     }
     
 }

@@ -13,14 +13,14 @@ extension String {
     /**
      *
      */
-    public func textSizeWith(fontSize:CGFloat,width:CGFloat)->CGSize{
-        let font = UIFont.systemScaleFontSize(fontSize)
-        let size = CGSizeMake(width, CGFloat.max)
+    public func textSizeWith(fontSize:CGFloat, width:CGFloat) -> CGSize {
+        let font = UIFont.systemScaleFontSize(fontSize: fontSize)
+        let size = CGSize(width:width, height:CGFloat.greatestFiniteMagnitude)
         let text = self as NSString
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineBreakMode = .ByWordWrapping;
+        paragraphStyle.lineBreakMode = .byWordWrapping;
         let attributes = [NSFontAttributeName:font,NSParagraphStyleAttributeName:paragraphStyle.copy()]
-        let rect = text.boundingRectWithSize(size, options: .UsesLineFragmentOrigin, attributes: attributes, context: nil)
+        let rect = text.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
         return rect.size
         
     }
@@ -29,6 +29,6 @@ extension String {
      *
      */
     public func textSizeForOneLineWith(fontSize:CGFloat)->CGSize {
-        return self.textSizeWith(fontSize, width: CGFloat.max)
+        return self.textSizeWith(fontSize: fontSize, width: CGFloat.greatestFiniteMagnitude)
     }
 }
