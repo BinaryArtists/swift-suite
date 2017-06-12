@@ -16,11 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        window = UIWindow(frame:UIScreen.main.bounds)
+        let window = UIWindow(frame:UIScreen.main.bounds)
+        window.backgroundColor = .white
+        window.makeKeyAndVisible()
         
-        window?.rootViewController = UserListViewController()
+        self.window = window
         
-        window?.makeKeyAndVisible()
+        window.rootViewController = UserListViewController()
+    
         
         return true
     }

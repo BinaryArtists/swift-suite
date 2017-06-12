@@ -2,6 +2,22 @@
 
 Data driven!
 
+- [ReactorKit/ReactorKit](https://github.com/ReactorKit/ReactorKit)
+
+## We need !!!
+
+1. carthage
+    
+```
+```
+
+2. cocospod
+
+```
+```
+
+3. package manager??
+
 ## partition
 
 ## architect (clean ios architecture)
@@ -14,15 +30,26 @@ Data driven!
 
 1. Scene / per view
     - Configurator (singleton)
+    
     - ViewController <PresenterOutput>
     - ViewController.output -> Interactor (输出Action)
     - ViewController.router -> Router
-    - Router
+    
+    - Router <RouterInput>
     - Router -> ViewController, dataSource:Interactor, dataDestination:Interactor
+    
     - Interactor <ViewControllerOutput, RouterDataSource, RouterDataDestination>
-    - Interactor.output -> Presenter (输出？？)
+    - Interactor.output -> Presenter (输出裸数据)
+    
     - Presenter <tInteractorOutput>
-    - Presenter.outpu -> ViewController (输出数据)
+    - Presenter.output -> ViewController (输出ViewModel)
+
+
+结论：我不喜欢这种，过于碎片，不简洁
+
+## architect (react)
+
+
 
 ## script
 
@@ -39,6 +66,9 @@ Data driven!
 
 1. Magic '_': 
     - [Swift——(三)Swift神奇的下划线](http://www.cnblogs.com/bhlsheji/p/4746072.html)
+2. Variable
+    - [Swift中的let和var背后的编程模式](http://www.open-open.com/news/view/eb9089)
+    - [Swift if let / var 连用语法与guard let语法介绍](http://www.jianshu.com/p/2d5bcff1a696)
 
 ## tools
 
