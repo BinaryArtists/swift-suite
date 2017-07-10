@@ -4,14 +4,35 @@ Data driven!
 
 - [ReactorKit/ReactorKit](https://github.com/ReactorKit/ReactorKit)
 
-## We need !!!
+## layer
+
+---
+
+* building
+    - Appearance: 外观工具
+    - Base: 基础类集
+    - Component: 组件包装层(避免第三方库命名、规则，污染到业务层)
+    - Core: 核心工具包装层
+* component / service / debug
+    - component: UI widget, UI 单一组件，UI 业务组件
+    - service: 核心服务组件
+    - debug: 调试工具
+* core
+    - 网络层
+    - 缓存
+    - 数据库
+* cocopods / carthage (第三方包管理)
+
+---
+
+## we need
 
 1. carthage
     
 ```
 ```
 
-2. cocospod
+2. cocopods
 
 ```
 ```
@@ -47,7 +68,7 @@ Data driven!
 
 结论：我不喜欢这种，过于碎片，不简洁
 
-## architect (react)
+## architect
 
 
 
