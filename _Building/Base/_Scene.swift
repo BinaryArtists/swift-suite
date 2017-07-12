@@ -24,7 +24,13 @@ class _Scene: UIViewController { // Change ViewController to Scene
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        initNavigationBar();
+        
+        initContainer();
+        
+        initTableView();
+        
+        makeConstraints();
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,15 +38,38 @@ class _Scene: UIViewController { // Change ViewController to Scene
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func updateViewConstraints() {
+        super.updateViewConstraints();
+        
+        updateConstraints();
     }
-    */
+    
+    // MARK: - Initialize template
 
+    func initNavigationBar() {
+        
+    }
+    
+    func initContainer() {
+        
+    }
+    
+    func initTableView() {
+        
+    }
+    
+    // MARK: - Constraints template
+    
+    func makeConstraints() {
+        
+    }
+    
+    func remakeConstraints() {
+        
+    }
+    
+    func updateConstraints() {
+        
+    }
+    
 }
