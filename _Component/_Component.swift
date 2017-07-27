@@ -24,6 +24,7 @@ import Foundation
 // 4. https://github.com/evgenyneu/SigmaSwiftStatistics
 // 5. https://github.com/LlamaKit/LlamaKit
 // 6. https://github.com/natecook1000/SortedCollection
+// 7. https://github.com/IntrepidPursuits/swift-wisdom
 
 // MARK: - Collection
 
