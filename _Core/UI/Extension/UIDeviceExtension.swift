@@ -27,6 +27,18 @@
 import Foundation
 import UIKit
 
+public enum _DeviceType: Int {
+    case _UNKNOWN = 0
+    case _iPhone4S          //iPhone4S、iPhone4
+    case _iPhone5           //iPhone5、iPhone5C和iPhone5S
+    case _iPhone6           //iPhone6
+    case _iPhone6p          //iPhone6 Plus
+    case _iPad              //iPad1、iPad2
+    case _iPadmini          //iPad mini1
+    case _iPadretina        //New iPad、iPad4和iPad Air
+    case _iPadminiretina    //iPad mini2
+}
+
 // MARK: - Global variables
 
 /// Used to store BFAPNSIdentifier in defaults.
@@ -79,6 +91,25 @@ public func osVersionLessThanOrEqual(_ version: String) -> Bool {
 /// This extesion adds some useful functions to UIDevice
 public extension UIDevice {
     // MARK: - Variables
+    
+    static var deviceType:_DeviceType {
+        get {
+            if let size = UIScreen.main.currentMode?.size {
+                switch size{
+                case CGSize(width: 640, height: 960)   : return ._iPhone4S
+                case CGSize(width: 640 , height: 1136) : return ._iPhone5
+                case CGSize(width: 750 , height: 1334) : return ._iPhone6
+                case CGSize(width: 1242, height: 2208) : return ._iPhone6p
+                case CGSize(width: 1024, height: 768 ) : return ._iPad
+                case CGSize(width: 768 , height: 1024) : return ._iPadmini
+                case CGSize(width: 2048, height: 1536) : return ._iPadretina
+                case CGSize(width: 1536, height: 2048) : return ._iPadminiretina
+                default : return ._UNKNOWN
+                }
+            }
+            return ._UNKNOWN
+        }
+    }
     
     /// Get OS version string.
     public static var osVersion: String {

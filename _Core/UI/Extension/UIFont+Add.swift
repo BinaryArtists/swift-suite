@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UIFont{
+extension UIFont {
     static var scale:CGFloat{
         get {
             return 1.2
@@ -23,7 +23,7 @@ extension UIFont{
      */
     class func systemScaleFontSize(fontSize:CGFloat) ->UIFont{
         switch UIDevice.deviceType{
-            case .DT_iPhone6_Plus:
+            case ._iPhone6p:
                 return UIFont.systemFont(ofSize: fontSize * CGFloat(scale))
             default:
                 return UIFont.systemFont(ofSize: fontSize)

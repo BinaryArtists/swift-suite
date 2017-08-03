@@ -42,7 +42,7 @@ struct _Core {
     /// - Parameter version: Version to be checked, you can use the variable BFApp.version to pass the current App version.
     /// - Returns: Returns if is first start of the App or for custom version.
     public static func isFirstStart(version: String = "") -> Bool {
-        let key: String = BFAppHasBeenOpened + "\(version)"
+        let key: String = AppHasBeenOpened + "\(version)"
         
         let defaults = UserDefaults.standard
         let hasBeenOpened: Bool = defaults.bool(forKey: key)
@@ -60,9 +60,9 @@ struct _Core {
     public static func onFirstStart(version: String = "", block: (_ isFirstStart: Bool) -> Void) {
         let key: String
         if version == "" {
-            key = BFAppHasBeenOpened
+            key = AppHasBeenOpened
         } else {
-            key = BFAppHasBeenOpened + "\(version)"
+            key = AppHasBeenOpened + "\(version)"
         }
         
         let defaults = UserDefaults.standard
@@ -82,7 +82,7 @@ struct _Core {
     /// - Returns: Returns true if the operation was successful, otherwise false.
     @discardableResult
     public static func setAppSetting(object: Any, forKey objectKey: String) -> Bool {
-        return FileManager.default.setSettings(filename: BFApp.name, object: object, forKey: objectKey)
+        return FileManager.default.setSettings(filename: _Core.name, object: object, forKey: objectKey)
     }
     
     /// Get the App setting for a given key.
@@ -90,14 +90,14 @@ struct _Core {
     /// - Parameter objectKey: Key to get the object.
     /// - Returns: Returns the object for the given key.
     public static func getAppSetting(objectKey: String) -> Any? {
-        return FileManager.default.getSettings(filename: BFApp.name, forKey: objectKey)
+        return FileManager.default.getSettings(filename: _Core.name, forKey: objectKey)
     }
 }
 
 // MARK: - BFApp extension
 
 /// Extends BFApp with project infos.
-public extension _Core {
+extension _Core {
     // MARK: - Variables
     
     /// Return the App name.
