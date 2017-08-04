@@ -90,6 +90,7 @@ Data driven!
 2. Variable
     - [Swift中的let和var背后的编程模式](http://www.open-open.com/news/view/eb9089)
     - [Swift if let / var 连用语法与guard let语法介绍](http://www.jianshu.com/p/2d5bcff1a696)
+3. open，public，internal，fileprivate，private
 
 ## tools
 

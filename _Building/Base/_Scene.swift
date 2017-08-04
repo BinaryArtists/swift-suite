@@ -24,13 +24,17 @@ class _Scene: UIViewController { // Change ViewController to Scene
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        initNavigationBar();
+        // 视图初始化
+
+        initView()
         
-        initContainer();
+        // 布局初始化
+        makeConstraints()
         
-        initTableView();
+        // 动作初始化
         
-        makeConstraints();
+        // 数据初始化
+        initData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,16 +49,12 @@ class _Scene: UIViewController { // Change ViewController to Scene
     }
     
     // MARK: - Initialize template
-
-    func initNavigationBar() {
+    
+    func initView() {
         
     }
     
-    func initContainer() {
-        
-    }
-    
-    func initTableView() {
+    func initData() {
         
     }
     

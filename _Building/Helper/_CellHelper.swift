@@ -13,7 +13,7 @@ import UIKit
 
 extension UITableViewCell {
     static var id: String {
-        return String(describing: Self.self)
+        return String(describing: self)
     }
     
     static var cellNib: UINib {
@@ -23,7 +23,7 @@ extension UITableViewCell {
 
 extension UICollectionViewCell {
     static var id: String {
-        return String(describing: Self.self)
+        return String(describing: self)
     }
     
     static var cellNib: UINib {
@@ -33,6 +33,26 @@ extension UICollectionViewCell {
 
 // MARK: - Cell convention
 
+extension UITableViewCell {
+    
+    // MARK: - Data I/O
+    
+    func setup() { }
+    func setdown(_ model: AnyObject) { }
+    
+    // MARK: -
+    
+    
+}
 
-
+extension UICollectionViewCell {
+    
+    // MARK: - Data I/O
+    
+    func setup() { }
+    func setdown(_ model: AnyObject) { }
+    
+    // MARK: -
+    
+}
 
