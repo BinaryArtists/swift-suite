@@ -23,6 +23,8 @@ class _Scene: UIViewController { // Change ViewController to Scene
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.edgesForExtendedLayout = []
 
         // 视图初始化
 

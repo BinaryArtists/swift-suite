@@ -10,6 +10,18 @@ import UIKit
 
 class _Navigator: UINavigationController { // Change navigation controller to Navigator
 
+    init(_ rootScene: _Scene) {
+        super.init(rootViewController: rootScene)
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
