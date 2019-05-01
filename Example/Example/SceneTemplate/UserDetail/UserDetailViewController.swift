@@ -54,7 +54,7 @@ class UserDetailViewController: UIViewController, UserDetailViewControllerInput 
     func displayUser(viewModel: UserDetailScene.GetUser.ViewModel) {
         
         if let url = URL(string: viewModel.imagePath) {
-            self.userImage.kf.setImage(with: url)
+//            self.userImage.kf.setImage(with: url)
         }
         
         atributes = viewModel.atributes

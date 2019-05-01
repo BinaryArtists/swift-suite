@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Kingfisher
+//import Kingfisher
 
 extension UserDetailViewController: UITableViewDelegate, UITableViewDataSource {
     

@@ -37,18 +37,18 @@ class UserListInteractor: UserListInteractorInput, UserListDataSource, UserListD
     
     func getUser(request: UserListScene.GetUser.Request)
     {
-        worker = UserListWorker(store: UserNetworkStore())
-        worker?.getUser {(result: UserStoreResult<User>) -> Void in
-            
-            switch result {
-                case .success(let user):
-                    self.users.insert(user, at: 0)
-                    let response = UserListScene.GetUser.Response(newUser: user)
-                    self.output?.presentUser(response: response)
-                case .failure(let error):
-                    print(error)
-            }
-        }
+//        worker = UserListWorker(store: UserNetworkStore())
+//        worker?.getUser {(result: UserStoreResult<User>) -> Void in
+//
+//            switch result {
+//                case .success(let user):
+//                    self.users.insert(user, at: 0)
+//                    let response = UserListScene.GetUser.Response(newUser: user)
+//                    self.output?.presentUser(response: response)
+//                case .failure(let error):
+//                    print(error)
+//            }
+//        }
     }
     
     func selectUser(request: UserListScene.SelectUser.Request) {

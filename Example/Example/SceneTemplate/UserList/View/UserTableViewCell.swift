@@ -27,7 +27,7 @@ class UserTableViewCell: UITableViewCell {
         self.userEmail.text = user.email
         
         if let url = URL(string: user.imagePath) {
-            self.userImage.kf.setImage(with: url)
+//            self.userImage.kf.setImage(with: url)
         }
     }
 }
