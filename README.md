@@ -27,17 +27,26 @@ Data driven!
 
 ## we need
 
-1. carthage
-    
-```
-```
-
-2. cocopods
+[cocopods](https://www.jianshu.com/p/36953a48937d)
 
 ```
-```
+pod lib create WYLib
 
-3. package manager??
+
+pod lib lint
+
+$ git remote add origin http://git.weiyankeji.cn/APP/ios/WYLib.git
+$ git add .
+$ git commit -m "Initial commit"
+$ git push -u origin master
+//tag 值要和podspec中的version一致
+$ git tag 0.1.0
+//推送tag到服务器上
+$ git push --tags
+
+
+pod spec lint
+```
 
 ## partition
 
