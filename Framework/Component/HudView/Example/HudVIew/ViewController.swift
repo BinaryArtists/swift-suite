@@ -1,0 +1,101 @@
+import UIKit
+import HudView
+
+private let delay : TimeInterval = 1
+
+class ViewController: UIViewController {
+
+    @IBOutlet weak var pattern: PatternView!
+    
+    @IBOutlet var buttonCollect: [UIButton]! {
+        didSet {
+            buttonCollect.forEach {
+                $0.isHidden = true
+            }
+        }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.pattern.setRhombusPattern()
+        self.pattern.color = UIColor.white
+        self.pattern.alpha = 0.1
+        self.pattern.cellWidthMax = 70
+    }
+
+    // enable: 不允许交互
+    @IBAction func successButtonClick(_ sender: Any) {
+        
+         HudView.showSuccess(text: "加载成功", delay: delay,enable: false)
+    }
+
+    @IBAction func errorButtonClick(_ sender: Any) {
+        HudView.showError(text: "加载失败", delay: delay)
+    }
+
+    @IBAction func infoButtonClick(_ sender: Any) {
+        HudView.showInfo(text: "请先注册", delay: delay)
+    }
+
+    @IBAction func loadingButtonClick(_ sender: Any) {
+        HudView.showLoading(text: "加载中\n三秒后消失")
+
+        HudView.hide(delay: 5)
+
+    }
+
+    @IBAction func textButtonClick(_ sender: Any) {
+        HudView.showText(text: "登录成功", delay: delay)
+    }
+
+    @IBAction func text2ButtonClick(_ sender: Any) {
+        let hud = HudView(text: "锄禾日当午汗滴禾下土", type: .text, delay: 0,enable:true,offset:CGPoint(x: 0, y: view.frame.size.height / CGFloat(2) - CGFloat(100)))
+        hud.backgroundColor = UIColor(red: 18/255, green: 112/255, blue: 238/255, alpha: 0.9)
+        hud.show()
+
+        hud.hide(delay: 1.5)
+    }
+
+    @IBAction func hideButtonClick(_ sender: UIButton) {
+
+         HudView.hide()
+
+        if sender.isSelected {
+            sender.isSelected = false
+            showButtonCollect()
+        }
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        showButtonCollect()
+    }
+
+    func showButtonCollect() {
+
+        UIView.animate(withDuration: 0.8,
+                       delay: 0,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 1,
+                       options: UIView.AnimationOptions.curveEaseOut,
+                       animations: {
+            self.buttonCollect.forEach({
+                $0.isHidden = !$0.isHidden
+            })
+
+        }, completion: nil)
+    }
+
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+
+}
+

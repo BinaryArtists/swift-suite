@@ -1,0 +1,6 @@
+framework module HudView {
+  umbrella header "HudView-umbrella.h"
+
+  export *
+  module * { export * }
+}
