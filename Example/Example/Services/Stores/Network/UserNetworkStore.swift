@@ -7,22 +7,22 @@
 //
 
 import Foundation
-import Alamofire
+//import Alamofire
 
-class UserNetworkStore: UserStore {
+//class UserNetworkStore: UserStore {
+
+//    func getUser(completion: @escaping UserStoreGetUserCompletionHandler) {
+//        _ = Alamofire.request(UserNetworkRouter.getUser())
+//            .validate()
+//            .responseObject { (response: DataResponse<User>) in
+//                switch response.result {
+//                case .success(let user):
+//                    completion(.success(result: user))
+//                case .failure(let error):
+//                    completion(.failure(error: UserStoreError.cannotGet("Cannot get user \(error)")))
+//                }
+//        }
+//
+//    }
     
-    func getUser(completion: @escaping UserStoreGetUserCompletionHandler) {
-        _ = Alamofire.request(UserNetworkRouter.getUser())
-            .validate()
-            .responseObject { (response: DataResponse<User>) in
-                switch response.result {
-                case .success(let user):
-                    completion(.success(result: user))
-                case .failure(let error):
-                    completion(.failure(error: UserStoreError.cannotGet("Cannot get user \(error)")))
-                }
-        }
-        
-    }
-    
-}
+//}

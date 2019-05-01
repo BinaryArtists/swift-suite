@@ -7,24 +7,24 @@
 //
 
 import Foundation
-import Alamofire
+//import Alamofire
 
-enum UserNetworkRouter:URLRequestConvertible {
-    
-    static let baseURL = "https://randomuser.me/api/"
-    
-    case getUser()
-    
-    func asURLRequest() throws -> URLRequest {
-        var request: URLRequest!
-        
-        switch self {
-        case .getUser():
-            let url = URL(string: UserNetworkRouter.baseURL)!
-            request = URLRequest(url: url)
-            request.httpMethod = "GET"
-        }
-        
-        return try Alamofire.URLEncoding().encode(request, with: nil)
-    }
-}
+//enum UserNetworkRouter:URLRequestConvertible {
+//    
+//    static let baseURL = "https://randomuser.me/api/"
+//    
+////    case getUser()
+//    
+//    func asURLRequest() throws -> URLRequest {
+//        var request: URLRequest!
+//        
+//        switch self {
+//        case .getUser():
+//            let url = URL(string: UserNetworkRouter.baseURL)!
+//            request = URLRequest(url: url)
+//            request.httpMethod = "GET"
+//        }
+//        
+//        return try Alamofire.URLEncoding().encode(request, with: nil)
+//    }
+//}
