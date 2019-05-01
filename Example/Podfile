@@ -1,0 +1,54 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Example' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  pod "Framework/Component/HudView", :path => '../'
+  
+  # 测试框架
+  # pod "Sleipnir"
+
+  # MVC替代框架
+  pod 'ReactorKit'
+
+  # 基本能力 - 定义基本规则
+  pod "SwiftString"
+  pod "ExSwift"
+  pod "R.swift"                         # 资源使用
+  # pod "Kingfisher"                      # 网络图片
+  # pod "KingfisherWebP"
+  # pod 'Alamofire'                       # HTTP请求
+  # pod 'SwiftyJSON'                      JSON解析
+  # pod 'Alamofire-SwiftyJSON'
+  # pod 'Moya'                            # 网络层
+  pod 'XCGLogger'                       # 日志
+  pod 'SQLite.swift'                    # 数据库
+  pod 'SnapKit'
+
+  # 工具组件 - 工具能力
+  pod 'BluetoothKit'                    # 蓝牙
+  pod "Observable-Swift"                # KVO
+  pod "AsyncSwift"                      # GCD
+  # pod "PromiseKit"                      # 异步处理
+  # pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
+  pod 'IBAnimatable'                    # 动画
+  # pod "SwiftTask"                       # 状态机
+  # pod 'KeychainAccess'                  # 钥匙串
+  # pod 'Dollar'                          # 函数式支持
+  # pod 'Surge'                           # 函数式支持
+
+  # 业务组件 - 业务直接接轨
+  # pod 'MonkeyKing'                      # 社交分享
+  # pod 'Whisper'                         # 弹出通知
+  # pod 'SwiftyStoreKit'                  # 支付
+  pod 'PermissionScope'                 # 权限管理
+  # pod "Appz"                            # 应用间跳转
+
+  # UI组件
+  # pod 'AAInfographics'                  # 数据图表, https://github.com/ameizi/awesome-ios-chart
+  # pod 'CHKLineChartKit'                 # 股票图表
+  # pod 'ENSwiftSideMenu'                 # A simple side menu for iOS written in Swift.
+
+end
