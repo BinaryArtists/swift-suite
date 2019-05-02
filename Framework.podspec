@@ -23,10 +23,68 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/BinaryArtists/swift-suite.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
   
+  # 核心库
+  s.subspec 'Core' do |core|
+    # 预定义常量
+    core.subspec 'Consts' do |consts|
+      consts.source_files = 'Framework/Core/Consts/**/*.swift'
+    end
+
+    # 错误处理
+    core.subspec 'ErrorHandle' do |errorhandle|
+      errorhandle.source_files = 'Framework/Core/ErrorHandle/**/*.swift'
+    end
+
+    # 日志模块
+    core.subspec 'Logger' do |logger|
+      logger.source_files = 'Framework/Core/Logger/**/*.swift'
+    end
+
+    # KVO
+    core.subspec 'Observable' do |observable|
+      observable.source_files = 'Framework/Core/Observable/**/*.swift'
+    end
+
+    # 设计模式
+    core.subspec 'Pattern' do |pattern|
+      pattern.source_files = 'Framework/Core/Pattern/**/*.swift'
+    end
+
+    # 数据结构
+    core.subspec 'Structure' do |structure|
+      structure.source_files = 'Framework/Core/Structure/**/*.swift'
+    end
+
+    # 工具模块
+    core.subspec 'Util' do |util|
+      util.source_files = 'Framework/Core/Util/**/*.swift'
+    end
+  end
+
+  # 扩展库
+  s.subspec 'Extension' do |extension|
+    extension.source_files = 'Framework/Extension/**/*.swift'
+  end
+
+  # 模块库
+  s.subspec 'Module' do |module|
+    module.subspec 'PermissionScope' do |permissionscope|
+      permissionscope.source_files = 'Framework/Module/PermissionScope/**/*.swift'
+    end
+  end
+
   # 组件库
   s.subspec 'Component' do |component|
+    component.subspec 'Core' do |core|
+      core.source_files = 'Framework/Component/Core/**/*.swift'
+    end
+
     component.subspec 'HudView' do |hudview|
-      hudview.source_files = "Framework/Component/HudView/HudView/**/*.{h,m}"
+      hudview.source_files = "Framework/Component/HudView/HudView/**/*.swift"
+    end
+
+    component.subspec 'TabBarController' do |tabbarcontroller|
+      tabbarcontroller.source_files = 'Framework/Component/TabBarController/**/*.swift'
     end
   end
 end

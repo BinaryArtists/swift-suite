@@ -12,6 +12,7 @@ target 'Example' do
 
   # MVC替代框架
   pod 'ReactorKit'
+  pod 'ReSwift'                         # Redux
 
   # 基本能力 - 定义基本规则
   # pod 'SwiftString'
