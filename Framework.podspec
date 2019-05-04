@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Framework'
-  s.version          = '0.1.0'
+  s.version          = '0.1.12'
   s.summary          = 'iOS 开发包 [Swift].'
   s.description      = <<-DESC
                         iOS 开发包 [Swift].
@@ -23,6 +23,16 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/BinaryArtists/swift-suite.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
   
+  # 基础扩展库
+  s.subspec 'Foundation' do |foundation|
+    foundation.source_files = 'Framework/Foundation/**/*.swift'
+  end
+
+  # UI扩展库
+  s.subspec 'UIKit' do |uikit|
+    uikit.source_files = 'Framework/UIKit/**/*.swift'
+  end
+
   # 核心库
   s.subspec 'Core' do |core|
     # 预定义常量
@@ -31,13 +41,13 @@ Pod::Spec.new do |s|
     end
 
     # 错误处理
-    core.subspec 'ErrorHandle' do |errorhandle|
-      errorhandle.source_files = 'Framework/Core/ErrorHandle/**/*.swift'
+    core.subspec 'Error' do |error|
+      error.source_files = 'Framework/Core/Error/**/*.swift'
     end
 
     # 日志模块
-    core.subspec 'Logger' do |logger|
-      logger.source_files = 'Framework/Core/Logger/**/*.swift'
+    core.subspec 'Log' do |log|
+      log.source_files = 'Framework/Core/Log/**/*.swift'
     end
 
     # KVO
@@ -67,9 +77,17 @@ Pod::Spec.new do |s|
   end
 
   # 模块库
-  s.subspec 'Module' do |module|
-    module.subspec 'PermissionScope' do |permissionscope|
+  s.subspec 'Module' do |modules|
+    modules.subspec 'App' do |app|
+      app.source_files = 'Framework/Module/App/**/*.swift'
+    end
+
+    modules.subspec 'PermissionScope' do |permissionscope|
       permissionscope.source_files = 'Framework/Module/PermissionScope/**/*.swift'
+    end
+
+    modules.subspec 'System' do |systems|
+      systems.source_files = 'Framework/Module/System/**/*.swift'
     end
   end
 

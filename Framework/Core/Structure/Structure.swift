@@ -1,11 +1,3 @@
-//
-//  _Structure.swift
-//  readmate
-//
-//  Created by 7 on 03/08/2017.
-//  Copyright © 2017 fallen.ink. All rights reserved.
-//
-
 import Foundation
 
 // MARK: - List struct
@@ -41,11 +33,13 @@ public struct List<Element: Equatable>: CustomStringConvertible {
     /// - Parameter element: The object to be deleted.
     /// - Returns: Retruns true if removed, otherwise false.
     public mutating func delete(_ element: Element) -> Bool {
-        guard let search = self.search(element) else {
+        let firstElement = search(element)
+        
+        guard firstElement > -1 else {
             return false
         }
         
-        list.remove(at: search)
+        list.remove(at: firstElement)
         return true
     }
     
@@ -68,12 +62,12 @@ public struct List<Element: Equatable>: CustomStringConvertible {
     ///
     /// - Parameter element: The element to search.
     /// - Returns: Returns the index of the searched element.
-    public func search(_ element: Element) -> Int? {
-        for i in 0 ..< list.count where list[i] == element {
-            return i
+    public func search(_ element: Element) -> Int {
+        for index in 0 ..< list.count where list[index] == element {
+            return index
         }
         
-        return nil
+        return -1
     }
 }
 
@@ -161,8 +155,8 @@ public struct Stack<Element: Equatable>: CustomStringConvertible {
     ///
     /// - Returns: Returns the removed element.
     public mutating func pop() -> Element? {
-        var element: Element? = nil
-        if !self.empty() {
+        var element: Element?
+        if !empty() {
             element = stack[stack.count - 1]
             stack.remove(at: stack.count - 1)
         }

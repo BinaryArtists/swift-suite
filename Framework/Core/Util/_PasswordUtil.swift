@@ -8,7 +8,7 @@
 
 import Foundation
 
-// MARK: - BFPassword struct
+// MARK: - _PasswordUtil struct
 
 /// This struct adds some useful functions to manage passwords.
 public struct _PasswordUtil {
@@ -65,7 +65,7 @@ public struct _PasswordUtil {
     /// - Parameter password: Password to be scored.
     /// - Returns: Return the score based on password length.
     private static func lengthScore(_ password: String) -> Int {
-        let lenght = password.length
+        let lenght = password.count
         
         switch lenght {
         case 0...4:
