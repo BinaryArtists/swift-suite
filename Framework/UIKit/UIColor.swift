@@ -12,9 +12,9 @@ import UIKit
 /// - Returns: Returns the created UIColor or NSColor.
 public func RGBA(_ red: Int, _ green: Int, _ blue: Int, _ alpha: Float) -> UIColor {
     #if canImport(UIKit)
-    return Color(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: CGFloat(alpha))
+    return UIColor(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: CGFloat(alpha))
     #elseif canImport(AppKit)
-    return Color(calibratedRed: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: CGFloat(alpha))
+    return UIColor(calibratedRed: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: CGFloat(alpha))
     #endif
 }
 
@@ -26,7 +26,7 @@ public func RGBA(_ red: Int, _ green: Int, _ blue: Int, _ alpha: Float) -> UICol
 ///   - green: Green value.
 ///   - blue: Blue value.
 /// - Returns: Returns the created UIColor or NSColor.
-public func ARGB( _ alpha: Float, _ red: Int, _ green: Int, _ blue: Int) -> Color {
+public func ARGB( _ alpha: Float, _ red: Int, _ green: Int, _ blue: Int) -> UIColor {
     return RGBA(red, green, blue, alpha)
 }
 
@@ -37,17 +37,17 @@ public func ARGB( _ alpha: Float, _ red: Int, _ green: Int, _ blue: Int) -> Colo
 ///   - green: Green value.
 ///   - blue: Blue value.
 /// - Returns: Returns the created UIColor or NSColor.
-public func RGB(_ red: Int, _ green: Int, _ blue: Int) -> Color {
+public func RGB(_ red: Int, _ green: Int, _ blue: Int) -> UIColor {
     #if canImport(UIKit)
-    return Color(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    return UIColor(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     #elseif canImport(AppKit)
-    return Color(calibratedRed: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    return UIColor(calibratedRed: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     #endif
 }
 
 // MARK: - UIColor or NSColor extension
 /// This extesion adds some useful functions to UIColor or NSColor.
-public extension Color {
+public extension UIColor {
     // MARK: - Variables
     #if canImport(UIKit)
     /// RGB properties: red.
@@ -203,37 +203,37 @@ public extension Color {
         switch colorString.count {
         case 3: /// RGB
             alpha = 1.0
-            red = Color.colorComponent(fromString: colorString, range: 0..<1)
-            green = Color.colorComponent(fromString: colorString, range: 1..<2)
-            blue = Color.colorComponent(fromString: colorString, range: 2..<3)
+            red = UIColor.colorComponent(fromString: colorString, range: 0..<1)
+            green = UIColor.colorComponent(fromString: colorString, range: 1..<2)
+            blue = UIColor.colorComponent(fromString: colorString, range: 2..<3)
         case 4: /// ARGB if alphaFirst is true, otherwise RGBA.
             if alphaFirst {
-                alpha = Color.colorComponent(fromString: colorString, range: 0..<1)
-                red = Color.colorComponent(fromString: colorString, range: 1..<2)
-                green = Color.colorComponent(fromString: colorString, range: 2..<3)
-                blue = Color.colorComponent(fromString: colorString, range: 3..<4)
+                alpha = UIColor.colorComponent(fromString: colorString, range: 0..<1)
+                red = UIColor.colorComponent(fromString: colorString, range: 1..<2)
+                green = UIColor.colorComponent(fromString: colorString, range: 2..<3)
+                blue = UIColor.colorComponent(fromString: colorString, range: 3..<4)
             } else {
-                red = Color.colorComponent(fromString: colorString, range: 0..<1)
-                green = Color.colorComponent(fromString: colorString, range: 1..<2)
-                blue = Color.colorComponent(fromString: colorString, range: 2..<3)
-                alpha = Color.colorComponent(fromString: colorString, range: 3..<4)
+                red = UIColor.colorComponent(fromString: colorString, range: 0..<1)
+                green = UIColor.colorComponent(fromString: colorString, range: 1..<2)
+                blue = UIColor.colorComponent(fromString: colorString, range: 2..<3)
+                alpha = UIColor.colorComponent(fromString: colorString, range: 3..<4)
             }
         case 6: /// RRGGBB
             alpha = 1.0
-            red = Color.colorComponent(fromString: colorString, range: 0..<2)
-            green = Color.colorComponent(fromString: colorString, range: 2..<4)
-            blue = Color.colorComponent(fromString: colorString, range: 4..<6)
+            red = UIColor.colorComponent(fromString: colorString, range: 0..<2)
+            green = UIColor.colorComponent(fromString: colorString, range: 2..<4)
+            blue = UIColor.colorComponent(fromString: colorString, range: 4..<6)
         case 8: /// AARRGGBB if alphaFirst is true, otherwise RRGGBBAA.
             if alphaFirst {
-                alpha = Color.colorComponent(fromString: colorString, range: 0..<2)
-                red = Color.colorComponent(fromString: colorString, range: 2..<4)
-                green = Color.colorComponent(fromString: colorString, range: 4..<6)
-                blue = Color.colorComponent(fromString: colorString, range: 6..<8)
+                alpha = UIColor.colorComponent(fromString: colorString, range: 0..<2)
+                red = UIColor.colorComponent(fromString: colorString, range: 2..<4)
+                green = UIColor.colorComponent(fromString: colorString, range: 4..<6)
+                blue = UIColor.colorComponent(fromString: colorString, range: 6..<8)
             } else {
-                red = Color.colorComponent(fromString: colorString, range: 0..<2)
-                green = Color.colorComponent(fromString: colorString, range: 2..<4)
-                blue = Color.colorComponent(fromString: colorString, range: 4..<6)
-                alpha = Color.colorComponent(fromString: colorString, range: 6..<8)
+                red = UIColor.colorComponent(fromString: colorString, range: 0..<2)
+                green = UIColor.colorComponent(fromString: colorString, range: 2..<4)
+                blue = UIColor.colorComponent(fromString: colorString, range: 4..<6)
+                alpha = UIColor.colorComponent(fromString: colorString, range: 6..<8)
             }
             
         default:
@@ -250,14 +250,14 @@ public extension Color {
     /// A good contrasting color, it will be either black or white.
     ///
     /// - Returns: Returns the color.
-    func contrasting() -> Color {
-        return luminance > 0.5 ? Color.black : Color.white
+    func contrasting() -> UIColor {
+        return luminance > 0.5 ? UIColor.black : UIColor.white
     }
     
     /// A complementary color that should look good.
     ///
     /// - Returns: Returns the color.
-    func complementary() -> Color? {
+    func complementary() -> UIColor? {
         var hue: CGFloat = 0.0, saturation: CGFloat = 0.0, brightness: CGFloat = 0.0, alpha: CGFloat = 0.0
         
         #if canImport(UIKit)
@@ -273,7 +273,7 @@ public extension Color {
             hue -= 360
         }
         
-        return Color(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
+        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
     }
     
     /// Check if the color is in RGB format.
@@ -312,27 +312,27 @@ public extension Color {
     ///
     /// - Parameter alpha: Alpha value.
     /// - Returns: Returns the UIColor or NSColor instance.
-    static func random(alpha: CGFloat = 1.0) -> Color {
+    static func random(alpha: CGFloat = 1.0) -> UIColor {
         let red = Int.random(in: 0...255)
         let green = Int.random(in: 0...255)
         let blue = Int.random(in: 0...255)
         
-        return Color(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: alpha)
+        return UIColor(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: alpha)
     }
     
     /// Create an UIColor or NSColor from a given string. Example: "blue" or hex string.
     ///
     /// - Parameter color: String with color.
     /// - Returns: Returns the created UIColor or NSColor.
-    static func color(string color: String) -> Color {
+    static func color(string color: String) -> UIColor {
         if color.count >= 3 {
-            if Color.responds(to: Selector(color.lowercased() + "Color")) {
+            if UIColor.responds(to: Selector(color.lowercased() + "Color")) {
                 return convertColor(string: color)
             } else {
-                return Color(hex: color)
+                return UIColor(hex: color)
             }
         } else {
-            return Color.black
+            return UIColor.black
         }
     }
     
@@ -364,43 +364,43 @@ public extension Color {
     ///
     /// - Parameter color: String with the color.
     /// - Returns: Returns the created UIColor or NSColor.
-    private static func convertColor(string color: String) -> Color {
+    private static func convertColor(string color: String) -> UIColor {
         let color = color.lowercased()
         
         switch color {
         case "black":
-            return Color.black
+            return UIColor.black
         case "darkgray":
-            return Color.darkGray
+            return UIColor.darkGray
         case "lightgray":
-            return Color.lightGray
+            return UIColor.lightGray
         case "white":
-            return Color.white
+            return UIColor.white
         case "gray":
-            return Color.gray
+            return UIColor.gray
         case "red":
-            return Color.red
+            return UIColor.red
         case "green":
-            return Color.green
+            return UIColor.green
         case "blue":
-            return Color.blue
+            return UIColor.blue
         case "cyan":
-            return Color.cyan
+            return UIColor.cyan
         case "yellow":
-            return Color.yellow
+            return UIColor.yellow
         case "magenta":
-            return Color.magenta
+            return UIColor.magenta
         case "orange":
-            return Color.orange
+            return UIColor.orange
         case "purple":
-            return Color.purple
+            return UIColor.purple
         case "brown":
-            return Color.brown
+            return UIColor.brown
         case "clear":
-            return Color.clear
+            return UIColor.clear
             
         default:
-            return Color.clear
+            return UIColor.clear
         }
     }
     
@@ -410,7 +410,7 @@ public extension Color {
     ///   - color: UIColor or NSColor value.
     ///   - alpha: Alpha value.
     /// - Returns: Returns an UIColor or NSColor instance.
-    static func color(color: Color, alpha: CGFloat) -> Color {
+    static func color(color: UIColor, alpha: CGFloat) -> UIColor {
         return color.withAlphaComponent(alpha)
     }
 }
