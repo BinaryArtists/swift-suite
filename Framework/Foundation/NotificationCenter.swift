@@ -17,11 +17,11 @@ extension NotificationCenter{
     
     func postNameOnMainThread(aName: String, object: AnyObject?) {
         let not = Notification(name: Notification.Name(rawValue: aName), object: object)
-        postNotificationOnMainThread(notification: not as NSNotification)
+        postOnMainThread(notification: not as NSNotification)
     }
     
     func postNameOnMainThread(aName:String,object:AnyObject?,userInfo:[NSObject:AnyObject]?) {
         let not = NSNotification(name: NSNotification.Name(rawValue: aName), object: object, userInfo: userInfo)
-        postNotificationOnMainThread(notification: not)
+        postOnMainThread(notification: not)
     }
 }

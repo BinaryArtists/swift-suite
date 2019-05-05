@@ -657,7 +657,7 @@ public extension UIImage {
     /// - Parameter radians: Radians to rotate to
     /// - Returns: Returns the rotated image.
     func rotate(radians: Double) -> UIImage {
-        return rotate(degrees: Double(radiansToDegrees(Float(radians))))
+        return rotate(degrees: Double(radiansToDegrees(radians)))
     }
     
     /// Rotate the image to the given degrees.
@@ -666,7 +666,7 @@ public extension UIImage {
     /// - Returns: Returns the rotated image.
     func rotate(degrees: Double) -> UIImage {
         let rotatedViewBox = UIView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        let transformation = CGAffineTransform(rotationAngle: CGFloat(degreesToRadians(Float(degrees))))
+        let transformation = CGAffineTransform(rotationAngle: CGFloat(degreesToRadians(degrees)))
         rotatedViewBox.transform = transformation
         let rotatedSize = CGSize(width: Int(rotatedViewBox.frame.size.width), height: Int(rotatedViewBox.frame.size.height))
         
@@ -678,7 +678,7 @@ public extension UIImage {
         
         context.translateBy(x: rotatedSize.width / 2, y: rotatedSize.height / 2)
         
-        context.rotate(by: CGFloat(degreesToRadians(Float(degrees))))
+        context.rotate(by: CGFloat(degreesToRadians(degrees)))
         
         context.scaleBy(x: 1.0, y: -1.0)
         context.draw(cgImage, in: CGRect(x: -size.width / 2, y: -size.height / 2, width: size.width, height: size.height))

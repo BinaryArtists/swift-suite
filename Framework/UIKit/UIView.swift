@@ -4,7 +4,6 @@ import QuartzCore
 import UIKit
 
 // MARK: - UIView extension
-
 /// This extesion adds some useful functions to UIView.
 public extension UIView {
     // MARK: - Variables
@@ -364,7 +363,6 @@ public extension UIView {
 }
 
 // MARK: - UIView animatable extension
-
 /// Extends UIView with animatable functions.
 public extension UIView {
     /// Create a shake effect.
@@ -510,7 +508,6 @@ public extension UIView {
 }
 
 // MARK: - UIView inspectable extension
-
 /// Extends UIView with inspectable variables.
 @IBDesignable
 extension UIView {

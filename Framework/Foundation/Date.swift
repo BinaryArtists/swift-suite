@@ -1,48 +1,20 @@
-//
-//  DateExtension.swift
-//  BFKit
-//
-//  The MIT License (MIT)
-//
-//  Copyright (c) 2015 - 2017 Fabrizio Brancati. All rights reserved.
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-
 import Foundation
 
 // MARK: - Date extension
-
 /// This extension add some useful functions to Date.
 public extension Date {
     // MARK: - Variables
     
     /// Set and get current year.
-    public var year: Int {
+    var year: Int {
         get {
+            #if os(Linux)
+            let calendar = Calendar(identifier: .gregorian)
+            #else
             let calendar = Calendar.autoupdatingCurrent
-            let components = calendar.dateComponents([.year], from: self)
+            #endif
             
-            guard let year = components.year else {
-                return 0
-            }
-            
-            return year
+            return calendar.component(.year, from: self)
         }
         set {
             update(components: [.year: newValue])
@@ -50,16 +22,15 @@ public extension Date {
     }
     
     /// Set and get current month.
-    public var month: Int {
+    var month: Int {
         get {
+            #if os(Linux)
+            let calendar = Calendar(identifier: .gregorian)
+            #else
             let calendar = Calendar.autoupdatingCurrent
-            let components = calendar.dateComponents([.month], from: self)
+            #endif
             
-            guard let month = components.month else {
-                return 0
-            }
-            
-            return month
+            return calendar.component(.month, from: self)
         }
         set {
             update(components: [.month: newValue])
@@ -67,16 +38,15 @@ public extension Date {
     }
     
     /// Set and get current day.
-    public var day: Int {
+    var day: Int {
         get {
+            #if os(Linux)
+            let calendar = Calendar(identifier: .gregorian)
+            #else
             let calendar = Calendar.autoupdatingCurrent
-            let components = calendar.dateComponents([.day], from: self)
+            #endif
             
-            guard let day = components.day else {
-                return 0
-            }
-            
-            return day
+            return calendar.component(.day, from: self)
         }
         set {
             update(components: [.day: newValue])
@@ -84,16 +54,15 @@ public extension Date {
     }
     
     /// Set and get current hour.
-    public var hour: Int {
+    var hour: Int {
         get {
+            #if os(Linux)
+            let calendar = Calendar(identifier: .gregorian)
+            #else
             let calendar = Calendar.autoupdatingCurrent
-            let components = calendar.dateComponents([.hour], from: self)
+            #endif
             
-            guard let hour = components.hour else {
-                return 0
-            }
-            
-            return hour
+            return calendar.component(.hour, from: self)
         }
         set {
             update(components: [.hour: newValue])
@@ -101,16 +70,15 @@ public extension Date {
     }
     
     /// Set and get current minute.
-    public var minute: Int {
+    var minute: Int {
         get {
+            #if os(Linux)
+            let calendar = Calendar(identifier: .gregorian)
+            #else
             let calendar = Calendar.autoupdatingCurrent
-            let components = calendar.dateComponents([.minute], from: self)
+            #endif
             
-            guard let minute = components.minute else {
-                return 0
-            }
-            
-            return minute
+            return calendar.component(.minute, from: self)
         }
         set {
             update(components: [.minute: newValue])
@@ -118,16 +86,15 @@ public extension Date {
     }
     
     /// Set and get current second.
-    public var second: Int {
+    var second: Int {
         get {
+            #if os(Linux)
+            let calendar = Calendar(identifier: .gregorian)
+            #else
             let calendar = Calendar.autoupdatingCurrent
-            let components = calendar.dateComponents([.second], from: self)
+            #endif
             
-            guard let second = components.second else {
-                return 0
-            }
-            
-            return second
+            return calendar.component(.second, from: self)
         }
         set {
             update(components: [.second: newValue])
@@ -135,18 +102,17 @@ public extension Date {
     }
     
     /// Get current nanosecond.
-    public var nanosecond: Int {
+    var nanosecond: Int {
+        #if os(Linux)
+        let calendar = Calendar(identifier: .gregorian)
+        #else
         let calendar = Calendar.autoupdatingCurrent
-        let components = calendar.dateComponents([.nanosecond], from: self)
+        #endif
         
-        guard let nanosecond = components.nanosecond else {
-            return 0
-        }
-        
-        return nanosecond
+        return calendar.component(.nanosecond, from: self)
     }
     
-    /// Get the weekday number from self.
+    /// Get the weekday number from
     /// - 1 - Sunday.
     /// - 2 - Monday.
     /// - 3 - Tuerday.
@@ -154,15 +120,14 @@ public extension Date {
     /// - 5 - Thursday.
     /// - 6 - Friday.
     /// - 7 - Saturday.
-    public var weekday: Int {
+    var weekday: Int {
+        #if os(Linux)
+        let calendar = Calendar(identifier: .gregorian)
+        #else
         let calendar = Calendar.autoupdatingCurrent
-        let components = calendar.dateComponents([.weekday], from: self)
+        #endif
         
-        guard let weekday = components.weekday else {
-            return 0
-        }
-        
-        return weekday
+        return calendar.component(.weekday, from: self)
     }
     
     /// Editable date components.
@@ -173,7 +138,7 @@ public extension Date {
     /// - hour: Hour component.
     /// - minute: Minute component.
     /// - second: Second component.
-    public enum EditableDateComponents: Int {
+    enum EditableDateComponents: Int {
         case year
         case month
         case day
@@ -188,28 +153,37 @@ public extension Date {
     ///
     /// - Parameters:
     ///   - components: Dictionary of components and values to be updated.
-    public mutating func update(components: [EditableDateComponents: Int]) {
-        let autoupdatingCalendar = Calendar.autoupdatingCurrent
-        var dateComponents = autoupdatingCalendar.dateComponents([.year, .month, .day, .weekday, .hour, .minute, .second, .nanosecond], from: self)
+    mutating func update(components: [EditableDateComponents: Int]) {
+        #if os(Linux)
+        let calendar = Calendar(identifier: .gregorian)
+        #else
+        let calendar = Calendar.autoupdatingCurrent
+        #endif
+        
+        var dateComponents = calendar.dateComponents([.year, .month, .day, .weekday, .hour, .minute, .second, .nanosecond], from: self)
         
         for (component, value) in components {
             switch component {
             case .year:
                 dateComponents.year = value
+                
             case .month:
                 dateComponents.month = value
+                
             case .day:
                 dateComponents.day = value
+                
             case .hour:
                 dateComponents.hour = value
+                
             case .minute:
                 dateComponents.minute = value
+                
             case .second:
                 dateComponents.second = value
             }
         }
         
-        let calendar = Calendar(identifier: autoupdatingCalendar.identifier)
         guard let date = calendar.date(from: dateComponents) else {
             return
         }
@@ -226,7 +200,7 @@ public extension Date {
     ///   - hour: Hour.
     ///   - minute: Minute.
     ///   - second: Second.
-    public init?(year: Int, month: Int, day: Int, hour: Int = 0, minute: Int = 0, second: Int = 0) {
+    init?(year: Int, month: Int, day: Int, hour: Int = 0, minute: Int = 0, second: Int = 0) {
         var components = DateComponents()
         components.year = year
         components.month = month
@@ -235,7 +209,12 @@ public extension Date {
         components.minute = minute
         components.second = second
         
+        #if os(Linux)
+        let calendar = Calendar(identifier: .gregorian)
+        #else
         let calendar = Calendar.autoupdatingCurrent
+        #endif
+        
         guard let date = calendar.date(from: components) else {
             return nil
         }
@@ -248,9 +227,15 @@ public extension Date {
     ///   - dateString: Date String.
     ///   - format: Date String format. Default is "yyyy-MM-dd". Example: "2014-05-20".
     ///   - locale: Locale, default is "en_US_POSIX". You can use Locale.current.identifier.
-    public init?(parse dateString: String, format: String = "yyyy-MM-dd", locale: String = "en_US_POSIX") {
+    init?(parse dateString: String, format: String = "yyyy-MM-dd", locale: String = "en_US_POSIX") {
+        #if os(Linux)
+        let calendar = Calendar(identifier: .gregorian)
+        #else
+        let calendar = Calendar.autoupdatingCurrent
+        #endif
+        
         let dateFormatter = DateFormatter()
-        dateFormatter.calendar = Calendar.autoupdatingCurrent
+        dateFormatter.calendar = calendar
         dateFormatter.locale = Locale(identifier: locale)
         dateFormatter.timeZone = TimeZone.current
         dateFormatter.dateFormat = format
@@ -268,16 +253,18 @@ public extension Date {
     /// - Parameters:
     ///   - date: The first date for date.
     ///   - time: The second date for time.
-    public init?(date: Date, time: Date) {
+    ///   - dateSeparator: Date separator, default is "-".
+    ///   - timeSeparator: Time separator, default is ":".
+    init?(date: Date, time: Date, dateSeparator: String = "-", timeSeparator: String = ":") {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "yyyy\(dateSeparator)MM\(dateSeparator)dd"
         let datePortion: String = dateFormatter.string(from: date)
         
-        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.dateFormat = "HH\(timeSeparator)mm"
         let timePortion: String = dateFormatter.string(from: time)
         
         let dateTime = "\(datePortion) \(timePortion)"
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        dateFormatter.dateFormat = "yyyy\(dateSeparator)MM\(dateSeparator)dd HH\(timeSeparator)mm"
         
         guard let parsed = dateFormatter.date(from: dateTime) else {
             return nil
@@ -285,10 +272,10 @@ public extension Date {
         self = parsed
     }
     
-    /// Create an ISO 8601 date string.
+    /// Create an ISO 8601 date from a String.
     ///
     /// - Parameter date: ISO 8601 String.
-    public init?(iso8601: String) {
+    init?(iso8601: String) {
         guard let date = Date(parse: iso8601, format: "yyyy-MM-dd'T'HH:mm:ss.SSSZ") else {
             return nil
         }
@@ -297,96 +284,116 @@ public extension Date {
     }
     
     #if !os(Linux)
-        /// Creates an ISO 8601 String form self.
-        ///
-        /// - Returns: Returns an ISO 8601 String form self.
-        public func iso8601() -> String {
-            let dateFormatter = DateFormatter()
-            dateFormatter.calendar = Calendar(identifier: .iso8601)
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-            dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
-            
-            return dateFormatter.string(from: self)
-        }
+    /// Creates an ISO 8601 String form
+    ///
+    /// - Returns: Returns an ISO 8601 String form
+    func iso8601() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.calendar = Calendar(identifier: .iso8601)
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
+        
+        return dateFormatter.string(from: self)
+    }
     #endif
-
+    
     /// Get the months number between self and another date.
     ///
     /// - Parameter toDate: The another date.
     /// - Returns: Returns the months between the two dates.
-    public func monthsBetween(_ toDate: Date) -> Int {
+    func monthsBetween(_ toDate: Date) -> Int {
+        #if os(Linux)
+        let calendar = Calendar(identifier: .gregorian)
+        #else
         let calendar = Calendar.autoupdatingCurrent
+        #endif
+        
         let components = calendar.dateComponents([.month], from: self, to: toDate)
         
-        return abs(components.month!)
+        guard let month = components.month else {
+            return 0
+        }
+        
+        return abs(month)
     }
     
     /// Get the days number between self and another date.
     ///
     /// - Parameter anotherDate: The another date.
     /// - Returns: Returns the days between the two dates.
-    public func daysBetween(_ anotherDate: Date) -> Int {
-        let time: TimeInterval = self.timeIntervalSince(anotherDate)
+    func daysBetween(_ anotherDate: Date) -> Int {
+        let time: TimeInterval = timeIntervalSince(anotherDate)
         return Int(abs(time / 60 / 60 / 24))
     }
     
     /// Returns if self is today.
     ///
     /// - Returns: Returns if self is today.
-    public func isToday() -> Bool {
-        return self.isSame(Date())
+    func isToday() -> Bool {
+        return isSame(Date())
     }
     
     /// Compare self with another date.
     ///
     /// - Parameter anotherDate: The another date to compare as Date.
     /// - Returns: Returns true if is same day, otherwise false.
-    public func isSame(_ anotherDate: Date) -> Bool {
+    func isSame(_ anotherDate: Date) -> Bool {
+        #if os(Linux)
+        let calendar = Calendar(identifier: .gregorian)
+        #else
         let calendar = Calendar.autoupdatingCurrent
+        #endif
+        
         let componentsSelf = calendar.dateComponents([.year, .month, .day], from: self)
         let componentsAnotherDate = calendar.dateComponents([.year, .month, .day], from: anotherDate)
         
         return componentsSelf.year == componentsAnotherDate.year && componentsSelf.month == componentsAnotherDate.month && componentsSelf.day == componentsAnotherDate.day
     }
     
-    /// Add days to self.
+    /// Add days to
     ///
     /// - Parameter days: The number of days to add.
     /// - Returns: Returns self by adding the gived days number.
-    public func addingDays(_ days: Int) -> Date? {
-        return Calendar.autoupdatingCurrent.date(byAdding: .day, value: days, to: self)
+    func addingDays(_ days: Int) -> Date? {
+        #if os(Linux)
+        let calendar = Calendar(identifier: .gregorian)
+        #else
+        let calendar = Calendar.autoupdatingCurrent
+        #endif
+        
+        return calendar.date(byAdding: .day, value: days, to: self)
     }
     
-    /// Add days to self.
+    /// Add days to
     ///
     /// - Parameter days: The number of days to add.
-    public mutating func addDays(_ days: Int) {
-        guard let date = self.addingDays(days) else {
+    mutating func addDays(_ days: Int) {
+        guard let date = addingDays(days) else {
             return
         }
         
         self = date
     }
     
-    /// Get the year string from self.
+    /// Get the year string from
     ///
-    /// - Returns: Returns the year string from self.
-    public func yearString() -> String {
-        let dateFormatter: DateFormatter = DateFormatter()
+    /// - Returns: Returns the year string from
+    func yearString() -> String {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy"
         
         return dateFormatter.string(from: self)
     }
     
-    /// Get the String date from self.
+    /// Get the String date from
     ///
     /// - Parameters:
     ///   - format: Date format, default is "yyyy-MM-dd".
     ///   - locale: Locale, default is "en_US_POSIX".
-    /// - Returns: Returns the String data from self.
-    public func dateString(format: String = "yyyy-MM-dd", locale: String = "en_US_POSIX") -> String {
-        let dateFormatter: DateFormatter = DateFormatter()
+    /// - Returns: Returns the String data from
+    func dateString(format: String = "yyyy-MM-dd", locale: String = "en_US_POSIX") -> String {
+        let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: locale)
         dateFormatter.dateFormat = format
         
@@ -396,33 +403,42 @@ public extension Date {
     /// Returns date with the year, month and day only.
     ///
     /// - Returns: Date after removing all components but not year, month and day.
-    public func shortDate() -> Date {
+    func shortDate() -> Date {
+        #if os(Linux)
+        let calendar = Calendar(identifier: .gregorian)
+        #else
         let calendar = Calendar.autoupdatingCurrent
-        let components = calendar.dateComponents([.year, .month, .day], from:self)
+        #endif
         
-        return calendar.date(from: components)!
+        let components = calendar.dateComponents([.year, .month, .day], from: self)
+        
+        guard let date = calendar.date(from: components) else {
+            return self
+        }
+        
+        return date
     }
     
-    /// Check if the given date is less than self.
+    /// Check if the given date is less than
     ///
     /// - Parameter date: Date to compare.
     /// - Returns: Returns a true if self is greater than another one, otherwise false.
-    public func isGreaterThan(_ date: Date) -> Bool {
+    func isGreaterThan(_ date: Date) -> Bool {
         var isGreater = false
-        if self.compare(date) == ComparisonResult.orderedDescending {
+        if compare(date) == ComparisonResult.orderedDescending {
             isGreater = true
         }
         
         return isGreater
     }
     
-    /// Check if the given date is greater than self.
+    /// Check if the given date is greater than
     ///
     /// - Parameter date: Date to compare.
     /// - Returns: Returns a true if self is less than another one, otherwise false.
-    public func isLessThan(_ date: Date) -> Bool {
+    func isLessThan(_ date: Date) -> Bool {
         var isLess = false
-        if self.compare(date) == ComparisonResult.orderedAscending {
+        if compare(date) == ComparisonResult.orderedAscending {
             isLess = true
         }
         
@@ -433,14 +449,14 @@ public extension Date {
     ///
     /// - Parameter date: Date to compare.
     /// - Returns: Returns a true if self is equal to another one, otherwise false.
-    public func isEqual(_ date: Date) -> Bool {
-        return self.isSame(date)
+    func isEqual(_ date: Date) -> Bool {
+        return isSame(date)
     }
     
     /// Create a Date with the yesterday date.
     ///
     /// - Returns: Returns a Date with the yesterday date.
-    public func yesterday() -> Date {
+    func yesterday() -> Date {
         var date = self
         date.day -= 1
         
@@ -450,10 +466,13 @@ public extension Date {
     /// Get weekday as a localized string from current weekday number.
     ///
     /// - Returns: Return weekday as a localized string.
-    public func localizedWeekday() -> String {
+    func localizedWeekday() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
-        dateFormatter.locale = Locale(identifier: NSLocale.preferredLanguages.first!)
+        
+        if let locale = NSLocale.preferredLanguages.first {
+            dateFormatter.locale = Locale(identifier: locale)
+        }
         
         return dateFormatter.string(from: self).capitalized
     }
@@ -461,10 +480,13 @@ public extension Date {
     /// Get month as a localized string from current month.
     ///
     /// - Returns: Returns the given month as a localized string.
-    public func localizedMonth() -> String {
+    func localizedMonth() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM"
-        dateFormatter.locale = Locale(identifier: NSLocale.preferredLanguages.first!)
+        
+        if let locale = NSLocale.preferredLanguages.first {
+            dateFormatter.locale = Locale(identifier: locale)
+        }
         
         return dateFormatter.string(from: self).capitalized
     }
@@ -477,25 +499,25 @@ public extension Date {
     ///   - usFormat: Set if the timestamp is in US format or not.
     ///   - nanosecond: Set if the timestamp has to have the nanosecond.
     /// - Returns: Returns a String in the following format (dateSeparator = "/", usFormat to false and nanosecond to false). D/M/Y H:M:S. Example: 15/10/2013 10:38:43.
-    public func description(dateSeparator: String = "/", usFormat: Bool = false, nanosecond: Bool = false) -> String {
+    func description(dateSeparator: String = "/", usFormat: Bool = false, nanosecond: Bool = false) -> String {
         var description: String
         
         #if os(Linux)
-            if usFormat {
-                description = String(format: "%04li-%02li-%02li %02li:%02li:%02li", self.year, self.month, self.day, self.hour, self.minute, self.second)
-            } else {
-                description = String(format: "%02li-%02li-%04li %02li:%02li:%02li", self.month, self.day, self.year, self.hour, self.minute, self.second)
-            }
+        if usFormat {
+            description = String(format: "%04li-%02li-%02li %02li:%02li:%02li", year, month, day, hour, minute, second)
+        } else {
+            description = String(format: "%02li-%02li-%04li %02li:%02li:%02li", month, day, year, hour, minute, second)
+        }
         #else
-            if usFormat {
-                description = String(format: "%04li%@%02li%@%02li %02li:%02li:%02li", self.year, dateSeparator, self.month, dateSeparator, self.day, self.hour, self.minute, self.second)
-            } else {
-                description = String(format: "%02li%@%02li%@%04li %02li:%02li:%02li", self.month, dateSeparator, self.day, dateSeparator, self.year, self.hour, self.minute, self.second)
-            }
+        if usFormat {
+            description = String(format: "%04li%@%02li%@%02li %02li:%02li:%02li", year, dateSeparator, month, dateSeparator, day, hour, minute, second)
+        } else {
+            description = String(format: "%02li%@%02li%@%04li %02li:%02li:%02li", month, dateSeparator, day, dateSeparator, year, hour, minute, second)
+        }
         #endif
         
         if nanosecond {
-            description += String(format: ":%03li", self.nanosecond / 1000000)
+            description += String(format: ":%03li", self.nanosecond / 1_000_000)
         }
         
         return description

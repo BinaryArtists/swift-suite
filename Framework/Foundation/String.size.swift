@@ -14,12 +14,12 @@ extension String {
      *
      */
     public func textSizeWith(fontSize:CGFloat, width:CGFloat) -> CGSize {
-        let font = UIFont.systemScaleFontSize(fontSize: fontSize)
+        let font = UIFont.systemFont(ofSize: fontSize)
         let size = CGSize(width:width, height:CGFloat.greatestFiniteMagnitude)
         let text = self as NSString
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakMode = .byWordWrapping;
-        let attributes = [NSFontAttributeName:font,NSParagraphStyleAttributeName:paragraphStyle.copy()]
+        let attributes = [NSAttributedString.Key.font:font, NSAttributedString.Key.paragraphStyle:paragraphStyle.copy()]
         let rect = text.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
         return rect.size
         

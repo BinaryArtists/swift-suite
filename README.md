@@ -3,6 +3,7 @@
 * 包管理：Cocopods
 * 核心依赖
     - [ReactorKit/ReactorKit](https://github.com/ReactorKit/ReactorKit)
+* ExSwift
 
 ## 分层
 
