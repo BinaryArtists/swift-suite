@@ -11,7 +11,8 @@ import UIKit
 extension UserListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func configureTableViewOnLoad() {
-        userListTableView.register(UINib(nibName: "UserTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: cellIdentifiers.userCell)
+        let nib = UINib(nibName: "UserTableViewCell", bundle: Bundle.main)
+        userListTableView?.register(nib, forCellReuseIdentifier: cellIdentifiers.userCell)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
