@@ -1,12 +1,10 @@
 # swift-suite
----
 
 * 包管理：Cocopods
 * 核心依赖
     - [ReactorKit/ReactorKit](https://github.com/ReactorKit/ReactorKit)
 
 ## 分层
----
 
 * Framework/Foundation
     - 基础扩展 Extension
@@ -30,7 +28,6 @@
     - Core: 核心工具包装层
 
 ## 其他工具
----
 
 * [Cocopods](https://www.jianshu.com/p/36953a48937d)
 
@@ -54,7 +51,6 @@ pod spec lint
 ```
 
 ## architect (clean ios architecture)
----
 
 1. View
 2. Between View and ViewController
@@ -87,7 +83,6 @@ pod spec lint
 4. We want the Interactor to handle this data but we don't want the ViewController to know anything about it.
 
 ## 说明
----
 
 0. [vsouza/awesome-ios](https://github.com/vsouza/awesome-ios)
 
@@ -99,7 +94,6 @@ pod spec lint
 3. open，public，internal，fileprivate，private
 
 ## vendor
----
 
 1. [mac-cain13/R.swift](https://github.com/mac-cain13/R.swift), resource
 2. [typelift/Swiftx](https://github.com/typelift/Swiftx), Functional data types and functions
@@ -124,7 +118,6 @@ pod spec lint
 
 
 ## 未整理
----
 
 // MARK: - TableView
 
