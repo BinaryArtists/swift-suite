@@ -1,33 +1,38 @@
-# tool.swift
+# swift-suite
+------
 
-Data driven!
+* 包管理：Cocopods
+* 核心依赖
+    - [ReactorKit/ReactorKit](https://github.com/ReactorKit/ReactorKit)
 
-- [ReactorKit/ReactorKit](https://github.com/ReactorKit/ReactorKit)
+## 分层
+------
 
-## layer
-
----
-
-* building
+* Framework/Foundation
+    - 基础扩展 Extension
+* Framework/UIKit
+    - UI扩展 Extension
+* Framework/Core
+    - 工具组件 Tools
+        + 缓存
+        + 网络层
+        + 数据库
+        + debug: 调试工具
+* Framework/Module
+    - 业务服务 Service
+        + service: 核心服务组件
+    - 业务组件 Biz Component
+        + component: UI widget, UI 单一组件，UI 业务组件
+* Framework/Component
     - Appearance: 外观工具
     - Base: 基础类集
     - Component: 组件包装层(避免第三方库命名、规则，污染到业务层)
     - Core: 核心工具包装层
-* component / service / debug
-    - component: UI widget, UI 单一组件，UI 业务组件
-    - service: 核心服务组件
-    - debug: 调试工具
-* core
-    - 网络层
-    - 缓存
-    - 数据库
-* cocopods / carthage (第三方包管理)
 
----
+## 其他工具
+------
 
-## we need
-
-[cocopods](https://www.jianshu.com/p/36953a48937d)
+* [Cocopods](https://www.jianshu.com/p/36953a48937d)
 
 ```
 pod lib create WYLib
@@ -48,9 +53,8 @@ $ git push --tags
 pod spec lint
 ```
 
-## partition
-
 ## architect (clean ios architecture)
+------
 
 1. View
 2. Between View and ViewController
@@ -77,20 +81,13 @@ pod spec lint
 
 结论：我不喜欢这种，过于碎片，不简洁
 
-## architect
-
-
-
-## script
-
-
-----
 1. We are not trying to output anything from the ViewController.
 2. We are assuming the output === Interactor and the architecture loses sense (no component should know about what kind of object its output/input is).
 3. We dont want the ViewController to know anythyng about Business model.
 4. We want the Interactor to handle this data but we don't want the ViewController to know anything about it.
 
-## manual
+## 说明
+------
 
 0. [vsouza/awesome-ios](https://github.com/vsouza/awesome-ios)
 
@@ -101,29 +98,22 @@ pod spec lint
     - [Swift if let / var 连用语法与guard let语法介绍](http://www.jianshu.com/p/2d5bcff1a696)
 3. open，public，internal，fileprivate，private
 
-## tools
-
-1. [JohnSundell/SwiftPlate](https://github.com/JohnSundell/SwiftPlate)
-2. [yonaskolb/SwagGen](https://github.com/yonaskolb/SwagGen), Swagger/OpenAPISpec code generator written in Swift
-3. 
-
 ## vendor
+------
 
 1. [mac-cain13/R.swift](https://github.com/mac-cain13/R.swift), resource
 2. [typelift/Swiftx](https://github.com/typelift/Swiftx), Functional data types and functions
 3. [skyfe79/SwiftImageProcessing](https://github.com/skyfe79/SwiftImageProcessing)
 4. [jeantimex/ios-swift-collapsible-table-section](https://github.com/jeantimex/ios-swift-collapsible-table-section)
 5. [keitaoouchi/IoniconsKit](https://github.com/keitaoouchi/IoniconsKit), Use ionicons as UIImage / UIFont
-
-## projects
+6. [JohnSundell/SwiftPlate](https://github.com/JohnSundell/SwiftPlate)
+7. [yonaskolb/SwagGen](https://github.com/yonaskolb/SwagGen), Swagger/OpenAPISpec code generator written in Swift
 
 1. [hilen/TSWeChat](https://github.com/hilen/TSWeChat)
 2. [thinkloki/swift-open-project](https://github.com/thinkloki/swift-open-project), Swift 开源项目分类汇总
 3. [twostraws/HackingWithSwift](https://github.com/twostraws/HackingWithSwift)
 4. [allenwong/30DaysofSwift](https://github.com/allenwong/30DaysofSwift)
 5. [larrynatalicio/15DaysofAnimationsinSwift](https://github.com/larrynatalicio/15DaysofAnimationsinSwift)
-
-## reference
 
 1. [pepibumur/Startup](https://github.com/pepibumur/Startup)
 2. [github/swift-style-guide](https://github.com/github/swift-style-guide), [Artwalk/swift-style-guide](https://github.com/Artwalk/swift-style-guide/blob/master/README_CN.md)
@@ -133,8 +123,8 @@ pod spec lint
 6. [HelmMobile/clean-swift-templates](https://github.com/HelmMobile/clean-swift-templates), [icylydia/SwiftSingleton](https://github.com/icylydia/SwiftSingleton)
 
 
-## -------
-
+## 未整理
+------
 
 // MARK: - TableView
 
